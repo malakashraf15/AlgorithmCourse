@@ -1,0 +1,35 @@
+#include<iostream>
+#include<stdio.h>
+#include<time.h>
+#include<unistd.h>
+using namespace std;
+long long iterativefact(int n){
+long long fact=1;
+for(int i=1;i<=n;i++)
+{
+if(n==1)
+return 1;
+else
+fact=fact*i;
+}
+return fact;
+}
+long long recursionfact(int n){
+if (n==1)
+return 1;
+else
+return n*recursionfact(n-1);
+}
+main()
+{
+time_t startTime= time(NULL);
+int n;
+cout<<"please enter a positive number:"<<endl;
+cin>>n;
+long long fact=recursionfact(n);
+//long long fact=iterativefact(n);
+cout<<"the factorial is:"<<fact<<endl;
+sleep(1);
+time_t endTime= time(NULL);
+double timeTaken=endTime-startTime;
+cout<<"the execution time:"<<(timeTaken)/3600<<endl; }
